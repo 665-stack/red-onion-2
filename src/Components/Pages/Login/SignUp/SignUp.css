@@ -1,0 +1,20 @@
+.signUp {
+    margin-bottom: 100px;
+}
+
+form {
+    width: 300px;
+}
+
+.signUp input {
+    background-color: rgb(231, 227, 227);
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.signUp button {
+    width: 100%;
+    border-radius: 5px;
+}
