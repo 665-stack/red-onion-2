@@ -1,0 +1,26 @@
+.banner {
+    background-image: url("../../../../images/bannerbackground.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    /* position: relative; */
+}
+
+.banner div {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    width: 100%;
+
+    text-align: center;
+}
+
+.banner div h1 {
+    line-height: 60px;
+    font-size: 50px;
+}
