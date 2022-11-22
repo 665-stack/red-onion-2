@@ -5,7 +5,7 @@ const Signup = () => {
     return (
         <div className='signUp flex justify-center items-center mt-28'>
 
-            <form action="">
+            <form>
                 <input type="text" placeholder='Name' />
                 <br />
                 <input type="email" name="email" id="emial" placeholder='Email' />
