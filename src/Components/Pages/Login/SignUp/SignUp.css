@@ -7,7 +7,7 @@ form {
 }
 
 .signUp input {
-    background-color: rgb(231, 227, 227);
+    background-color: rgba(223, 221, 221, 0.681);
     width: 100%;
     margin-bottom: 15px;
     padding: 10px 20px;
