@@ -14,17 +14,20 @@ function App() {
   return (
     <>
       <Header></Header>
+
       <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/" element={<Home></Home>}>
+          <Route path="breakfast" element={<Breakfast></Breakfast>}></Route>
+          <Route path="lunch" element={<Dinner></Dinner>}></Route>
+          <Route path="dinner" element={<Lunch></Lunch>}></Route>
+
+        </Route>
+
         <Route path="/cart" element={<ShoppingCart></ShoppingCart>}></Route>
+
         <Route path="/login" element={<Login></Login>}></Route>
+
         <Route path="/signup" element={<Signup></Signup>}></Route>
-
-
-        <Route path="/breakfast" element={<Breakfast></Breakfast>}></Route>
-        <Route path="/lunch" element={<Dinner></Dinner>}></Route>
-        <Route path="/dinner" element={<Lunch></Lunch>}></Route>
-
 
 
         <Route path="*" element={<NotFound></NotFound>}></Route>
