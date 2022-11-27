@@ -13,39 +13,39 @@ const Breakfast = () => {
         <div className='breakfast pt-2 pb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-20 gap-y-8	text-center'>
             <div>
                 <img src={breakfast1} alt="" />
-                <h3>Unknown Food :(</h3>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
                 <p>How we dream about our future</p>
-                <p>$9</p>
+                <p className='text-3xl font-semibold'>$9</p>
             </div>
             <div >
                 <img src={breakfast2} alt="" />
-                <h3>Unknown Food :(</h3>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
                 <p>How we dream about our future</p>
-                <p>$12</p>
+                <p className='text-3xl font-semibold'>$12</p>
             </div>
             <div >
                 <img src={breakfast3} alt="" />
-                <h3>Unknown Food :(</h3>
-                <p>How we dream about our future</p>
-                <p>$19</p>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
+                <p >How we dream about our future</p>
+                <p className='text-3xl font-semibold'>$19</p>
             </div>
             <div >
                 <img className='w-48' src={breakfast4} alt="" />
-                <h3>Unknown Food :(</h3>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
                 <p>How we dream about our future</p>
-                <p>$3</p>
+                <p className='text-3xl font-semibold'>$3</p>
             </div>
             <div >
                 <img src={breakfast5} alt="" />
-                <h3>Unknown Food :(</h3>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
                 <p>How we dream about our future</p>
-                <p>$14</p>
+                <p className='text-3xl font-semibold'>$14</p>
             </div>
             <div >
                 <img src={breakfast6} alt="" />
-                <h3>Unknown Food :(</h3>
+                <h3 className='text-lg font-semibold'>Unknown Food :(</h3>
                 <p>How we dream about our future</p>
-                <p>$23</p>
+                <p className='text-3xl font-semibold'>$23</p>
             </div>
         </div >
     );
