@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth"
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth"
 import './SignUp.css'
+import { async } from '@firebase/util';
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -11,17 +12,25 @@ const Signup = () => {
         user,
         loading,
         error
-    ] = useCreateUserWithEmailAndPassword(auth);
-    const handleSignUp = e => {
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+
+    const handleSignUp = async e => {
         e.preventDefault()
         const name = e.target.name.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        createUserWithEmailAndPassword(email, password)
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: name });
+
     }
+    let successMessage;
     if (user) {
         console.log(user);
+        successMessage = <p className='text-green-500 mb-2 ml-2 mr-2'>User created</p>
         navigate('/')
     }
     let errorElement;
@@ -68,6 +77,7 @@ const Signup = () => {
                     {/* <input type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirm Password' />
 <br /> */}
                     {errorElement}
+                    {successMessage}
 
                     <button className='bg-rose-600 px-6 py-2 text-white' type="submit">Sign Up</button>
                     <br />
