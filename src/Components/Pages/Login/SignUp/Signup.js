@@ -1,23 +1,80 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth"
 import './SignUp.css'
+
 const Signup = () => {
+    const navigate = useNavigate()
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error
+    ] = useCreateUserWithEmailAndPassword(auth);
+    const handleSignUp = e => {
+        e.preventDefault()
+        const name = e.target.name.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        createUserWithEmailAndPassword(email, password)
+    }
+    if (user) {
+        console.log(user);
+        navigate('/')
+    }
+    let errorElement;
+    if (error) {
+        errorElement = <p className='text-rose-500 mb-2 ml-2 mr-2'>Error: {error?.message}</p>
+    }
     return (
         <div className='signUp flex justify-center items-center mt-28'>
 
-            <form>
-                <input type="text" placeholder='Name' />
-                <br />
-                <input type="email" name="email" id="emial" placeholder='Email' />
-                <br />
-                <input type="password" name="password" id="password" placeholder='Password' />
-                <br />
-                <input type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirm Password' />
-                <br />
-                <button className='bg-rose-600 px-6 py-2 text-white' type="submit">Sign Up</button>
-                <br />
+            <form onSubmit={handleSignUp}>
+                <div>
+                    <input
+                        type="text"
+                        name='name'
+                        placeholder='Name'
+                        required
+                    // onBlur={(e) => setName(e.target.value)} 
+                    />
 
-                <Link to='/login' className='text-rose-600 flex justify-center mt-2 '>Already have an account</Link>
+                    <br />
+
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder='Email'
+                        required
+                    // onBlur={(e) => setEmail(e.target.value)} 
+                    />
+
+                    <br />
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder='Password'
+                        required
+                    // onBlur={(e) => setPassword(e.target.value)} 
+                    />
+                    <br />
+
+
+                    {/* <input type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirm Password' />
+<br /> */}
+                    {errorElement}
+
+                    <button className='bg-rose-600 px-6 py-2 text-white' type="submit">Sign Up</button>
+                    <br />
+
+                    <Link to='/login' className='text-rose-600 flex justify-center mt-2 '>Already have an account</Link>
+                </div>
+
             </form>
 
 
