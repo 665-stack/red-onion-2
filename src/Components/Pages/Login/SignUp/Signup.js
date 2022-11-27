@@ -4,6 +4,7 @@ import auth from '../../../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth"
 import './SignUp.css'
 import { async } from '@firebase/util';
+import Loading from '../../../Shared/Loading/Loading';
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -27,6 +28,9 @@ const Signup = () => {
         await updateProfile({ displayName: name });
 
     }
+    if (loading || updating) {
+        return <Loading></Loading>
+    }
     let successMessage;
     if (user) {
         console.log(user);
@@ -34,7 +38,7 @@ const Signup = () => {
         navigate('/')
     }
     let errorElement;
-    if (error) {
+    if (error || updateError) {
         errorElement = <p className='text-rose-500 mb-2 ml-2 mr-2'>Error: {error?.message}</p>
     }
     return (
